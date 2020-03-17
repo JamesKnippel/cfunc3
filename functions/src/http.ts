@@ -1,6 +1,7 @@
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
 import * as express from 'express';
+import * as cors from 'cors';
 
 admin.initializeApp();
 
@@ -32,6 +33,7 @@ application with multiple API routes and the bundle as a whole  */
 
 
 const app = express();
+app.use(cors({ origin: true}));
 
 /* format is: ('/endpoint', callback(req, res)) */
 app.get('/pickle', (request, response) => {
