@@ -12,6 +12,10 @@ export const basicHTTP = functions.https.onRequest((request, response) => {
     for production
     */
     const name = request.query.name;
+    if (!name) {
+        response.status(400)
+        .send('Error bud - you must supply a name!');
+    }
     response.send (`hello ${name}`);
 
     /* HardCode Implementation */
