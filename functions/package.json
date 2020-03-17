@@ -3,7 +3,7 @@
   "scripts": {
     "lint": "tslint --project tsconfig.json",
     "build": "tsc",
-    "serve": "tsc -w | firebase serve --only functions",
+    "serve": "npm run build && tsc -w | firebase serve --only functions",
     "shell": "npm run build && firebase functions:shell",
     "start": "npm run shell",
     "deploy": "firebase deploy --only functions",
@@ -14,6 +14,7 @@
   },
   "main": "lib/index.js",
   "dependencies": {
+    "@types/cors": "^2.8.6",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "firebase-admin": "^8.6.0",
