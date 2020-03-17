@@ -32,7 +32,7 @@ application with multiple API routes and the bundle as a whole  */
 // const app = null;
 
 /* custom middleware example: authenticated user frontend to interact with backend */
-const auth = (request, response, next) => {
+const auth = (request: any , response: any, next: any) => {
     if (!request.header.authorization) {
         response.status(400).send('unauthorized request')
     }
