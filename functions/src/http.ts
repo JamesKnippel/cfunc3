@@ -31,9 +31,17 @@ application with multiple API routes and the bundle as a whole  */
 // Placeholder for Express App
 // const app = null;
 
+/* custom middleware example: authenticated user frontend to interact with backend */
+const auth = (request, response, next) => {
+    if (!request.header.authorization) {
+        response.status(400).send('unauthorized request')
+    }
+    next();
+}
 
 const app = express();
 app.use(cors({ origin: true}));
+app.use(auth);
 
 /* format is: ('/endpoint', callback(req, res)) */
 app.get('/pickle', (request, response) => {
