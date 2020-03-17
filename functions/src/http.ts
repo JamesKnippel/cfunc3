@@ -20,7 +20,13 @@ export const basicHTTP = functions.https.onRequest((request, response) => {
 
     /* HardCode Implementation */
     // response.send('Hello from Firebase, James!');
-    
-    
+      
+});
 
-})
+/* Instead of defining multiple individual functions, I can create an express.js
+application with multiple API routes and the bundle as a whole  */
+
+// Placeholder for Express App
+const app = null;
+
+export const api = functions.https.onRequest(app);
