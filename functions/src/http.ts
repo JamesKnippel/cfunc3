@@ -1,5 +1,6 @@
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
+import * as express from 'express';
 
 admin.initializeApp();
 
@@ -27,6 +28,18 @@ export const basicHTTP = functions.https.onRequest((request, response) => {
 application with multiple API routes and the bundle as a whole  */
 
 // Placeholder for Express App
-const app = null;
+// const app = null;
+
+
+const app = express();
+
+/* format is: ('/endpoint', callback(req, res)) */
+app.get('/pickle', (request, response) => {
+    response.send('I\'m a Pickle');
+});
+
+app.get('/rick', (request, response) => {
+    response.send('Don\'t you think that\'s funny, Morty?');
+});
 
 export const api = functions.https.onRequest(app);
