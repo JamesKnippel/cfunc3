@@ -8,7 +8,9 @@
     "strict": false,
     "target": "es2020",
     "lib" : ["es2017",
-    "ES7"],
+      "DOM",
+      "ES7",
+      "ES2016.Array.Include"],
     "resolveJsonModule": true
   },
   "compileOnSave": true,

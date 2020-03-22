@@ -2,6 +2,7 @@
 export { basicHTTP, api } from './http';
 export { createUserRecord } from './auth';
 export { gameCounter, userTrend } from './firestore';
+export { resizeAvatar } from './storage';
 
 
 
