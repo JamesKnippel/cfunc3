@@ -38,11 +38,13 @@ export const resizeAvatar = functions.storage
         }
 
        
-        // following fails to work, as tmpFilePath doesn't Exist
+
          await bucket.file(filePath).download({
             destination: tmpFilePath
         });
 
+        /* optional refactor found in 
+        https://github.com/fireship-io/fireship.io/issues/148 */
         // await fs.ensureDir(dirname(tmpFilePath))
         
         await sharp(tmpFilePath)
