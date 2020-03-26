@@ -3,6 +3,7 @@ import * as Twilio from 'twilio';
 import * as functions from 'firebase-functions';
 /* firebase functions:config:set apiName.sid="whatever" apiName.token="tokenCreds" */
 const credentials = functions.config().twilio;
+
 const client = Twilio(credentials.sid, credentials.token);
 
 import * as admin from 'firebase-admin';
@@ -22,8 +23,16 @@ export const sendText = functions.https.onCall(async (data, context) => {
     return client.messages.create({
         body: data.message,
         to: number,
-        from: '+12345678901'
+        from: '+12058435756'
+    }).then((message: any) => {
+        // console.log('SMS Sent: ' + smsMessage + ' to ' + phoneNumber);
+        console.log('SMS Sent');
+        return true;
     })
+        .catch((err: any) => {
+            console.log(err)
+            return false;
+        }); 
 })
 
 
