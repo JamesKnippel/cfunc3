@@ -24,15 +24,16 @@ export const sendText = functions.https.onCall(async (data, context) => {
         body: data.message,
         to: number,
         from: '+12058435756'
-    }).then((message: any) => {
-        // console.log('SMS Sent: ' + smsMessage + ' to ' + phoneNumber);
-        console.log('SMS Sent');
-        return true;
     })
+        .then((message: any) => {
+            // console.log('SMS Sent: ' + smsMessage + ' to ' + phoneNumber);
+            console.log('SMS Sent');
+            return true;
+        })
         .catch((err: any) => {
             console.log(err)
             return false;
-        }); 
+        });
 })
 
 

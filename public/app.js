@@ -21,4 +21,9 @@
 
         fetch('http://localhost:5001/fir-primer-20332/us-central1/api/pickle')
         .then(console.log);
+
+        /* Returns the function you wish to call */
+        const sendText = firebase.functions().httpsCallable('sendText');
+        sendText({message: 'Imaginary Form Value or Whatever!'});
+
       });
